@@ -1,0 +1,34 @@
+<div class="col-md-12">
+  <div class="row">
+    <% if user_signed_in? %>
+      <div class="pull-left">
+        <%= link_to 'Meus anúncios', cars_path, class: 'btn btn-link' %>
+      </div>
+    <% end %>
+    <div class="pull-right">
+      <% if not user_signed_in? %>
+        <%= link_to 'Sign in', user_session_path, class: 'btn btn-link' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-link' %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-link' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= image_tag car.avatar.url(:thumb) %>
+          <div class="caption">
+            <h4><%= car.name %></h4>
+            <p>Preço: <%= car.price %></p>
+            <p>Modelo: <%= car.model %>
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

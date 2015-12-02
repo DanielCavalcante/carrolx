@@ -1,0 +1,38 @@
+<%= form_for @car, method: 'post', html: { multipart: true, class: 'form-horizontal' } do |f| %>
+  <div class="col-md-6">
+
+  	<div class="form-group">
+  		<%= f.label :name, 'Carro' %>
+  		<%= f.text_field :name, class:"form-control" %>
+  	</div>
+
+  	<div class="form-group">
+  		<%= f.label :price, 'Preço' %>
+  		<%= f.text_field :price, class:"form-control" %>
+  	</div>
+
+  	<div class="form-group">
+  		<%= f.label :model, 'Modelo' %>
+  		<%= f.text_field :model, class:"form-control" %>
+  	</div>
+
+  	<div class="form-group">
+  		<%= f.label :age, 'Ano' %>
+  		<%= f.text_field :age, class:"form-control" %>
+  	</div>
+
+    <div class="form-group">
+  		<%= f.label :factory, 'Fábricante' %>
+  		<%= f.text_field :factory, class:"form-control" %>
+  	</div>
+
+    <div class="form-group">
+      <%= f.file_field :avatar %>
+    </div>
+
+  	<div class="form-group">
+  		<%= f.submit 'Cadastrar', class:'btn btn-success' %>
+      <%= link_to 'Voltar', cars_path, class:'btn btn-default' %>
+  	</div>
+  </div>
+<% end %>

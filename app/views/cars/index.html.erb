@@ -1,0 +1,24 @@
+<div class="form-horizontal">
+  <%= link_to 'Cadastrar carro', new_car_path, class: 'btn btn-link' %>
+  <% if user_signed_in? %>
+    <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-link' %>
+  <% end %>
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= image_tag car.avatar.url(:thumb) %>
+          <div class="caption">
+            <h4><%= car.name %></h4>
+            <p>Preço: <%= car.price %></p>
+            <p>Modelo: <%= car.model %>
+            <p>
+              <%= link_to 'Remover', car_path(car), method: :delete, class:"btn btn-danger" %>
+              <%= link_to 'Editar', edit_car_path(car), class:"btn btn-primary" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<div>
